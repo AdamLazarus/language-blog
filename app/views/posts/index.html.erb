@@ -6,28 +6,32 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-            <h1 class="page-header">
+            <!--<h1 class="page-header">
                 Page Heading
                 <small>Secondary Text</small>
-            </h1>
+            </h1>-->
 
             <!-- First Blog Post -->
+            <% posts = Post.where("user_id = ?", current_user.id)%>
+            <% posts.each do |post| %>
             <h2>
-                <a href="#">Blog Post Title</a>
+                <a href="#"><%= post.title %></a>
             </h2>
             <p class="lead">
-                by <a href="index.php">Start Bootstrap</a>
+                by <%=  link_to current_user.email, user_path(current_user)%></a>
             </p>
-            <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
+            <p><span class="glyphicon glyphicon-time"></span> Posted on <%= post.created_at %></p>
             <hr>
             <img class="img-responsive" src="http://placehold.it/900x300" alt="">
             <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
-            <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <p><%= truncate(post.content, :length => 30, :separator => ' ') %></p>
+            <%= link_to "Read More", user_post_path(current_user, post), :class => "btn btn-primary"%>
+            <!--<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>-->
 
             <hr>
+            <% end %>
 
-            <!-- Second Blog Post -->
+            <!-- Second Blog Post
             <h2>
                 <a href="#">Blog Post Title</a>
             </h2>
@@ -43,7 +47,7 @@
 
             <hr>
 
-            <!-- Third Blog Post -->
+            <!-- Third Blog Post
             <h2>
                 <a href="#">Blog Post Title</a>
             </h2>
@@ -57,7 +61,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates, voluptas dolore ipsam cumque quam veniam accusantium laudantium adipisci architecto itaque dicta aperiam maiores provident id incidunt autem. Magni, ratione.</p>
             <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
-            <hr>
+            <hr>-->
 
             <!-- Pager -->
             <ul class="pager">

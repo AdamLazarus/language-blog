@@ -15,16 +15,16 @@
             <% posts = Post.where("user_id = ?", current_user.id)%>
             <% posts.each do |post| %>
             <h2>
-                <a href="#"><%= post.title %></a>
+                <%= link_to post.title, user_post_path(current_user, post)%>
             </h2>
             <p class="lead">
-                by <%=  link_to current_user.email, user_path(current_user)%></a>
+                by <%=  link_to current_user.username, user_path(current_user)%></a>
             </p>
             <p><span class="glyphicon glyphicon-time"></span> Posted on <%= post.created_at %></p>
             <hr>
             <img class="img-responsive" src="http://placehold.it/900x300" alt="">
             <hr>
-            <p><%= truncate(post.content, :length => 30, :separator => ' ') %></p>
+            <p><%= truncate(post.content, :length => 600, :separator => ' ') %></p>
             <%= link_to "Read More", user_post_path(current_user, post), :class => "btn btn-primary"%>
             <!--<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>-->
 

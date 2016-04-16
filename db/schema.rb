@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403161047) do
+ActiveRecord::Schema.define(version: 20160412001425) do
+
+  create_table "corrections", force: :cascade do |t|
+    t.string   "post_id"
+    t.string   "correcter_id"
+    t.string   "orig_text"
+    t.string   "new_text"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "user_id"

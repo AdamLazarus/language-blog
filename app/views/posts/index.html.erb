@@ -24,7 +24,8 @@
             <hr>
             <img class="img-responsive" src="http://placehold.it/900x300" alt="">
             <hr>
-            <p><%= truncate(post.content, :length => 600, :separator => ' ') %></p>
+
+            <p id="content"><%= truncate(post.content, :length => 600, :separator => ' ') %></p>
             <%= link_to "Read More", user_post_path(current_user, post), :class => "btn btn-primary"%>
             <!--<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>-->
 
@@ -128,8 +129,11 @@
 
             <!-- Side Widget Well -->
             <div class="well">
-                <h4>Side Widget Well</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                <h4>Correction</h4>
+                <p id="correction"></p>
+                <%form_for @correction, html: { multipart: true} do |f| %>
+                  <div class="field">
+                    <
             </div>
 
         </div>

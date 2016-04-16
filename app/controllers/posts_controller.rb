@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_id(params[:id])
+    @correction = Correction.new post: @post
   end
 
   private

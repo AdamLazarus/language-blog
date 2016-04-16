@@ -1,0 +1,11 @@
+<%= form_for @correction, url: user_post_corrections_path(User.find_by_id(@post.user_id), @post, @correction), html: { multipart: true} do |f| %>
+  <div class="field">
+    <%= f.label :'Selected Text' %><br/>
+    <%= f.text_area :orig_text, :id => "selected_text", :readonly => true %><br/>
+    <%= f.label :Correction %><br/>
+    <%= f.text_area :new_text, :id => "correction"  %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

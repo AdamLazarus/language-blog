@@ -11,13 +11,9 @@ function getSelectionText() {
 $(document).ready(function(){
   $('p#content').bind('mouseup', function(event) {
     if(getSelectionText() != ''){
-
-      $('#popup').css('left',event.pageX);      // <<< use pageX and pageY
-      $('#popup').css('top',event.pageY);
-      $('#popup').css('display','inline');
-      $("#popup").css("position", "absolute");
         var t = getSelectionText();
-        $("#correction").html(t);
+        $("#selected_text").val(t);
+
       $("#popup").html(t);
       }
     });

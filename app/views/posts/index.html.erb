@@ -12,17 +12,15 @@
             </h1>-->
 
             <!-- First Blog Post -->
-            <% posts = Post.where("user_id = ?", current_user.id)%>
+            <% posts = Post.where("user_id = ?", @user.id)%>
             <% posts.each do |post| %>
             <h2>
-                <%= link_to post.title, user_post_path(current_user, post)%>
+                <%= link_to post.title, user_post_path(@user, post)%>
             </h2>
             <p class="lead">
-                by <%=  link_to current_user.username, user_path(current_user)%></a>
+                by <%=  link_to @user.username, user_path(@user)%></a>
             </p>
             <p><span class="glyphicon glyphicon-time"></span> Posted on <%= post.created_at %></p>
-            <hr>
-            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
             <hr>
 
             <p id="content"><%= truncate(post.content, :length => 600, :separator => ' ') %></p>
@@ -76,65 +74,7 @@
 
         </div>
 
-        <!-- Blog Sidebar Widgets Column -->
-        <div class="col-md-4">
 
-            <!-- Blog Search Well -->
-            <div class="well">
-                <h4>Blog Search</h4>
-                <div class="input-group">
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
-                            <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                    </span>
-                </div>
-                <!-- /.input-group -->
-            </div>
-
-            <!-- Blog Categories Well -->
-            <div class="well">
-                <h4>Blog Categories</h4>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.col-lg-6 -->
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.col-lg-6 -->
-                </div>
-                <!-- /.row -->
-            </div>
-
-            <!-- Side Widget Well -->
-            <div class="well">
-                <h4>Correction</h4>
-                <p id="correction"></p>
-                <!--<% render :template => "corrections/new" %>-->
-            </div>
-
-        </div>
 
     </div>
     <!-- /.row -->

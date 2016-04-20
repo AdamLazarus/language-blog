@@ -18,6 +18,10 @@ class PostsController < ApplicationController
     @correction = Correction.new post: @post
   end
 
+  def index
+    @user = User.find_by_id(params[:user_id])
+  end
+
   private
     def post_params
       params.require(:post).permit(:title, :content)

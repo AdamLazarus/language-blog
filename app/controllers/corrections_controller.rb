@@ -18,6 +18,10 @@ class CorrectionsController < ApplicationController
     end
   end
 
+  def index
+    @user = User.find(params[:user_id])
+  end
+
 
   def connection_params
     params.require(:correction).permit(:orig_text, :new_text)

@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20160412001425) do
 
   create_table "corrections", force: :cascade do |t|
-    t.string   "post_id"
-    t.string   "correcter_id"
+    t.integer  "post_id"
+    t.integer  "correcter_id"
     t.string   "orig_text"
     t.string   "new_text"
     t.datetime "created_at",   null: false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160412001425) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
     t.string   "title"
     t.string   "content"
     t.datetime "created_at", null: false
